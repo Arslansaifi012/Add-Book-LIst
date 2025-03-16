@@ -63,6 +63,7 @@ function App() {
   }
 
   function getdatatolocalstorage(){
+  
     const data = localStorage.getItem('books')
    if(data){
    return JSON.parse(data)
@@ -88,11 +89,16 @@ function editclckHandler(e) {
 }
 
 function deleteClickHandler(ind) {
-   const filterind = td.filter((_,i)=>{
-   return  ind !== i ;
-   })
-
-   settd(filterind) ;
+  
+  if (confirm("Are you Sure")) {
+    const filterind = td.filter((_,i)=>{
+      return  ind !== i ;
+      })
+   
+      settd(filterind) ;
+    
+  }
+  
 
  }
 
